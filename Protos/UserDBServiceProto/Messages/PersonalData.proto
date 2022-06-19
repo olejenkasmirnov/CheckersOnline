@@ -1,0 +1,26 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "UserDBServiceProto/Messages/BannedData.proto";
+
+option csharp_namespace = "Authenticator";
+
+package Authenticator;
+
+message PersonalData {
+  uint64 Id = 1;
+  string Login = 2;
+  string Name = 3;
+  google.protobuf.Timestamp RegistrationDate = 4;
+  google.protobuf.Timestamp LastActiveDate = 5;
+  BannedData BannedData = 6;
+  optional bytes Password = 7;
+}
+
+message PersonalDataRequest {
+  uint64 Id = 1;
+}
+
+message PersonalDataReply {
+  PersonalData PersonalData = 1;
+}

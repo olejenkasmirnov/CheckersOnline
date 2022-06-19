@@ -1,0 +1,13 @@
+﻿syntax = "proto3";
+
+import "GamesDBServiceProto/Messages/GameHolderMessages.proto";
+
+option csharp_namespace = "GamesHolder";
+
+package GamesHolder;
+
+service GamesHolder {
+  rpc AddGame (AddGameRequest) returns (AddGameReply);
+  rpc GetGame (GetGameRequest) returns (GetGameReply);
+  rpc GetGameByUser (GetUserGamesRequest) returns (GetUserGamesReply);
+}

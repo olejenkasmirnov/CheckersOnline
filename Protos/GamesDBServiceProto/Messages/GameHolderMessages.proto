@@ -1,0 +1,65 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GamesHolder";
+
+package GamesHolder;
+
+message Vector2{
+  int32 x = 1;
+  int32 y = 2;
+}
+
+enum CheckerType {
+  Common = 0;
+  Queen = 1;
+}
+
+message GameStep {
+  Vector2 From = 1;
+  Vector2 To = 2;
+  optional CheckerType Type = 3;
+  optional uint64 PlayerIDOwner = 4;
+}
+
+message Game {
+  bytes Id = 1;
+  uint64 Player1 = 2;
+  uint64 Player2 = 3;
+  repeated GameStep StepsHistory = 4; 
+}
+
+message AddGameRequest {
+  Game GameData = 1;
+}
+
+message AddGameReply {
+  enum State {
+    Successful = 0;
+    IdReserved = 1;
+    // ...
+  }
+  State Status = 1;
+  optional uint64 NewID = 2;
+}
+
+message GetGameRequest {
+  bytes GameID = 1;
+}
+
+message GetGameReply {
+  enum State {
+    Successful = 0;
+    GameNotFounded = 1;
+    // ...
+  }
+  State Status = 1;
+  Game Game = 2;
+}
+
+message GetUserGamesRequest {
+  uint64 UserID = 1;
+}
+
+message GetUserGamesReply {
+  repeated GetGameReply Games = 1;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "UserDBServiceProto/Messages/AuthenticatonMessages.proto";
+import "UserDBServiceProto/Messages/RememberPasswordMessages.proto";
+import "UserDBServiceProto/Messages/PersonalData.proto";
+
+
+option csharp_namespace = "Authenticator";
+
+package Authenticator;
+
+service Authenticator {
+  rpc Authenticate (AuthenticatorRequest) returns (AuthenticatorReply);
+  rpc Register (AuthenticatorRequest) returns (AuthenticatorReply);
+  rpc GetPersonalData (PersonalDataRequest) returns (PersonalDataReply);
+  rpc RememberPassword (RememberPasswordRequest) returns (RememberPasswordReply);
+}

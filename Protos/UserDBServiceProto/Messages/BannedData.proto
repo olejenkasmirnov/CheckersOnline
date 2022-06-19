@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Authenticator";
+
+package Authenticator;
+
+message BannedData {
+  bool IsBanned = 1;
+  optional string Reason = 2;
+}

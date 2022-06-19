@@ -1,0 +1,54 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "GameService";
+
+package GameService;
+
+message Vector2{
+  int32 x = 1;
+  int32 y = 2;
+}
+
+enum CheckerType {
+  Common = 0;
+  Queen = 1;
+}
+
+message GameStepRequest {
+  Vector2 From = 1;
+  Vector2 To = 2;
+  optional CheckerType Type = 3;
+  optional uint64 PlayerIDOwner = 4;
+}
+
+message Game {
+  bytes Id = 1;
+  uint64 Player1 = 2;
+  uint64 Player2 = 3;
+  repeated GameStepReply StepsHistory = 4;
+}
+
+message ForfeitRequest {
+  uint64 Id = 1;
+}
+
+message ForfeitReply {
+  int32 StatusCode = 1;
+}
+
+message VoteForDrawRequest {
+  uint64 Id = 1;
+}
+
+message VoteForDrawReply {
+  int32 StatusCode = 1;
+}
+
+message GameStepReply {
+  Vector2 From = 1;
+  Vector2 To = 2;
+  optional CheckerType Type = 3;
+  optional uint64 PlayerIDOwner = 4;
+}

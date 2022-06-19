@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "GameServiceProto/Messages/Game.proto";
+
+
+option csharp_namespace = "GameService";
+
+package GameService;
+
+service GameService {
+  rpc MakeMove (stream GameStepRequest) returns (stream GameStepReply);
+  rpc Forfeit (stream ForfeitRequest) returns (stream ForfeitReply);
+  rpc VoteForDraw (stream VoteForDrawRequest) returns (stream VoteForDrawRequest);
+}

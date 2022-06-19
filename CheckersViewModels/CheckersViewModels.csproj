@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Windows" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\CheckerModels\CheckerModels.csproj" />
+      <ProjectReference Include="..\Checkers.MVVM\Checkers.MVVM.csproj" />
+      <ProjectReference Include="..\CheckersLogic\CheckersLogic.csproj" />
+    </ItemGroup>
+
+</Project>

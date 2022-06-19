@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "UserDBServiceProto/Messages/PersonalData.proto";
+
+option csharp_namespace = "Authenticator";
+
+package Authenticator;
+
+message AuthenticatorReply {
+  int32 StatusCode = 1;
+  PersonalData PersonalData = 2;
+}
+
+message AuthenticatorRequest {
+  string Login = 1;
+  bytes Password = 2;
+}
